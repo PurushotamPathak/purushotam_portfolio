@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purushotam Pathak — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Extra styles for new sections ───────────────────────── */
+
+    /* STAT BADGES on hero */
+    .hero-stats {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+      animation: fadeUp 0.8s 0.55s ease both;
+    }
+    .stat-badge {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+    /* SOFT SKILLS */
+    .soft-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .soft-chip {
+      background: var(--surface2);
+      border: 1px solid rgba(124,109,250,0.25);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    /* INTERESTS row */
+    .interests-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .interest-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+    .interest-pill:hover { border-color: var(--accent); color: var(--text); transform: translateY(-2px); }
+    .interest-pill span:first-child { font-size: 18px; }
+
+    /* CGPA badge inside edu card */
+    .cgpa-badge {
+      display: inline-block;
+      margin-top: 6px;
+      background: rgba(124,109,250,0.12);
+      border: 1px solid rgba(124,109,250,0.3);
+      color: var(--accent);
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.05em;
+    }
+
+    /* EXPERIENCE metric highlight */
+    .exp-metric {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(109,250,204,0.08);
+      border: 1px solid rgba(109,250,204,0.25);
+      color: var(--accent3);
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+
+    /* DATABASES skill card accent */
+    .skill-card.db::before { background: linear-gradient(135deg, rgba(250,109,142,0.12), transparent 60%); }
+    .skill-card.db:hover { border-color: var(--accent2); }
+    .skill-card.db .skill-cat { color: var(--accent2); }
+
+    /* AREAS OF INTEREST */
+    .aoi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .aoi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.3s;
+    }
+    .aoi-card:hover { border-color: rgba(124,109,250,0.4); transform: translateY(-3px); }
+    .aoi-icon { font-size: 22px; }
+    .aoi-label { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; line-height: 1.3; }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">PP/</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-tag">Available for Opportunities</div>
+    <h1 class="hero-name">Purushotam<br><span>Pathak</span></h1>
+    <p class="hero-role">CS Engineer · AI/ML Enthusiast · Frontend Developer</p>
+    <p class="hero-desc">B.Tech CSE student at IILM University (CGPA 8.7/10) with hands-on experience in computer vision, machine learning, and full-stack web development. Building intelligent systems that matter.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">↗ Get in Touch</a>
+      <a href="#projects" class="btn btn-secondary">View Projects</a>
+      <a href="https://www.linkedin.com/in/purushotam-pathak-925b21290/" target="_blank" class="btn btn-secondary">LinkedIn →</a>
+    </div>
+
+    <!-- Key Stats -->
+    <div class="hero-stats">
+      <div class="stat-badge">
+        <span class="stat-num">8.7</span>
+        <span class="stat-label">CGPA / 10</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">100+</span>
+        <span class="stat-label">LeetCode Problems</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">74%</span>
+        <span class="stat-label">API Latency Reduced</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">~80%</span>
+        <span class="stat-label">Model Accuracy</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-num">3rd</span>
+        <span class="stat-label">Tech-Craft Fest</span>
+      </div>
+    </div>
+
+    <div class="hero-meta" style="margin-top: 40px;">
+      <div class="meta-item">
+        <span class="meta-label">Location</span>
+        <span class="meta-value">Greater Noida, UP</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Degree</span>
+        <span class="meta-value">B.Tech CSE</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Batch</span>
+        <span class="meta-value">2023–2027</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Email</span>
+        <span class="meta-value">pathakpurushotam4@gmail.com</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header reveal">
+      <span class="section-num">01 /</span>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid reveal">
+      <div>
+        <div class="about-text">
+          <p>I'm a Computer Science Engineering student at IILM University, Greater Noida, maintaining a CGPA of 8.7/10. I'm passionate about Artificial Intelligence, Machine Learning, and building software that solves real-world problems.</p>
+          <p>My experience ranges from front-end development at Saiket System — where I reduced API response latency by 74% — to building computer vision systems like a real-time Face Emotion Recognition System with ~80% accuracy.</p>
+          <p>I've solved 100+ problems on LeetCode, secured 3rd place at a college tech fest, and qualified for Smart India Hackathon 2024. I bring adaptability, analytical thinking, and a strong team collaboration mindset to every project.</p>
+        </div>
+        <div class="about-langs" style="margin-top: 20px;">
+          <span class="lang-chip">Hindi</span>
+          <span class="lang-chip">English</span>
+        </div>
+        <div style="margin-top: 20px;">
+          <div class="meta-label" style="margin-bottom: 10px;">Soft Skills</div>
+          <div class="soft-skills">
+            <span class="soft-chip">Adaptability</span>
+            <span class="soft-chip">Team Collaboration</span>
+            <span class="soft-chip">Analytical Thinking</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="meta-label" style="margin-bottom: 14px;">Areas of Interest</div>
+        <div class="aoi-grid">
+          <div class="aoi-card">
+            <span class="aoi-icon">🤖</span>
+            <span class="aoi-label">AI &amp; Machine Learning</span>
+          </div>
+          <div class="aoi-card">
+            <span class="aoi-icon">💻</span>
+            <span class="aoi-label">Software Development</span>
+          </div>
+          <div class="aoi-card">
+            <span class="aoi-icon">🧮</span>
+            <span class="aoi-label">Data Structures &amp; Algorithms</span>
+          </div>
+        </div>
+        <div class="meta-label" style="margin-top: 28px; margin-bottom: 12px;">Interests</div>
+        <div class="interests-row">
+          <div class="interest-pill"><span>📸</span><span>Nature Photography</span></div>
+          <div class="interest-pill"><span>🏏</span><span>Cricket</span></div>
+          <div class="interest-pill"><span>🌿</span><span>Exploring Nature</span></div>
+          <div class="interest-pill"><span>💡</span><span>Hackathons</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header reveal">
+      <span class="section-num">02 /</span>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-title">Programming</div>
+        <div class="skill-tags">
+          <span class="skill-tag">C</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Python</span>
+        </div>
+      </div>
+      <div class="skill-card db reveal">
+        <div class="skill-cat">Databases</div>
+        <div class="skill-title">Data Storage</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">MySQL</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-cat">Core CS</div>
+        <div class="skill-title">Fundamentals</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Data Structures</span>
+          <span class="skill-tag">Algorithms</span>
+          <span class="skill-tag">OOP</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-cat">AI / ML</div>
+        <div class="skill-title">Machine Learning</div>
+        <div class="skill-tags">
+          <span class="skill-tag">OpenCV</span>
+          <span class="skill-tag">CNN</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">PyTorch</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-cat">Web</div>
+        <div class="skill-title">Frontend Dev</div>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-cat">Tools</div>
+        <div class="skill-title">Dev Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">IntelliJ IDEA</span>
+          <span class="skill-tag">Eclipse</span>
+          <span class="skill-tag">Postman</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header reveal">
+      <span class="section-num">03 /</span>
+      <h2 class="section-title">Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="experience-list">
+      <div class="exp-item reveal">
+        <div class="exp-header">
+          <div class="exp-role">Front-End Developer Intern</div>
+          <span class="exp-date">April 2025 – June 2025</span>
+        </div>
+        <div class="exp-company">Saiket System</div>
+        <ul class="exp-bullets">
+          <li>Developed and optimized UI components ensuring efficiency and responsiveness.</li>
+          <li>Applied analytical and logical reasoning to identify and resolve system-level issues.</li>
+          <li>Participated in real-world application development, focusing on performance and usability.</li>
+          <li>Contributed to structured software development practices and code maintainability.</li>
+          <li>Optimized API performance through profiling and Postman testing, reducing response latency by <strong style="color: var(--accent3);">74%</strong>.</li>
+        </ul>
+        <span class="exp-metric">↓ 74% API Response Latency</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header reveal">
+      <span class="section-num">04 /</span>
+      <h2 class="section-title">Projects</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-icon">🧠</div>
+        <div class="project-title">Face Emotion Recognition System</div>
+        <div class="project-date">Computer Vision · Deep Learning</div>
+        <p class="project-desc">Real-time emotion detection from facial images using CNN and OpenCV. Implemented image preprocessing (face detection, resizing, normalization), trained a multi-class CNN model, and achieved ~80% prediction accuracy through model tuning and optimization.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">OpenCV</span>
+          <span class="tech-tag">CNN</span>
+          <span class="tech-tag">Deep Learning</span>
+        </div>
+        <div style="margin-top: 14px;">
+          <span class="exp-metric">~80% Prediction Accuracy</span>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-icon">🚦</div>
+        <div class="project-title">Smart Traffic Management System</div>
+        <div class="project-date">AI · Computer Vision</div>
+        <p class="project-desc">AI-based traffic monitoring system that detects vehicle density in real time using computer vision. Implemented real-time vehicle detection and counting with OpenCV, improving traffic flow efficiency through data-driven decision making.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">OpenCV</span>
+          <span class="tech-tag">Machine Learning</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-header reveal">
+      <span class="section-num">05 /</span>
+      <h2 class="section-title">Education</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="edu-list">
+      <div class="edu-card reveal">
+        <div class="edu-year">2023–27</div>
+        <div>
+          <div class="edu-degree">Bachelor of Technology — Computer Science &amp; Engineering</div>
+          <div class="edu-school">IILM University, Greater Noida</div>
+          <span class="cgpa-badge">CGPA: 8.7 / 10</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="section-header reveal" style="margin-top: 80px;">
+      <span class="section-num">06 /</span>
+      <h2 class="section-title">Certifications</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card reveal">
+        <div class="cert-icon">☁️</div>
+        <div class="cert-name">AWS Academy Machine Learning Foundations</div>
+        <div class="cert-org">Amazon Web Services</div>
+        <div class="cert-date">Oct 08, 2024</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">📡</div>
+        <div class="cert-name">Internet of Things</div>
+        <div class="cert-org">Dataflair</div>
+        <div class="cert-date">Nov 24, 2024</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">🐍</div>
+        <div class="cert-name">Python Fundamentals</div>
+        <div class="cert-org">Infosys</div>
+        <div class="cert-date">June 28, 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="section-header reveal">
+      <span class="section-num">07 /</span>
+      <h2 class="section-title">Achievements</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="achieve-list">
+      <div class="achieve-item reveal">
+        <div class="achieve-dot"></div>
+        <div class="achieve-text">Solved <strong>100+ coding challenges</strong> on LeetCode — consistently sharpening DSA and problem-solving skills.</div>
+      </div>
+      <div class="achieve-item reveal">
+        <div class="achieve-dot"></div>
+        <div class="achieve-text">Secured <strong>3rd Position</strong> at <strong>Tech-Craft College Tech Fest</strong> — recognized for technical excellence and innovation.</div>
+      </div>
+      <div class="achieve-item reveal">
+        <div class="achieve-dot"></div>
+        <div class="achieve-text">Qualified for the <strong>Smart India Hackathon (SIH) 2024</strong>, advancing to the second round from thousands of competing teams.</div>
+      </div>
+      <div class="achieve-item reveal">
+        <div class="achieve-dot"></div>
+        <div class="achieve-text">Participated in <strong>DPBH Hackathon</strong> — showcased problem-solving and innovation skills at a government-organized national event.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header reveal">
+      <span class="section-num">08 /</span>
+      <h2 class="section-title">Contact</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid reveal">
+      <div>
+        <div class="contact-text">Let's build something great together.</div>
+        <p class="contact-sub">Open to internships, collaborations, and exciting projects. Feel free to reach out — I'd love to connect and explore opportunities.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:pathakpurushotam4@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉️</span>
+          <div class="contact-link-text">
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-val">pathakpurushotam4@gmail.com</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/purushotam-pathak-925b21290/" target="_blank" class="contact-link">
+          <span class="contact-link-icon">💼</span>
+          <div class="contact-link-text">
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-val">purushotam-pathak-925b21290</span>
+          </div>
+        </a>
+        <a href="tel:+917488892961" class="contact-link">
+          <span class="contact-link-icon">📞</span>
+          <div class="contact-link-text">
+            <span class="contact-link-label">Phone</span>
+            <span class="contact-link-val">+91-7488892961</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2025 Purushotam Pathak</span>
+    <span>Greater Noida, UP · B.Tech CSE @ IILM University · CGPA 8.7</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
